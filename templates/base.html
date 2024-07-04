@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BibE | {% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <h1>BibliographyE</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'add-book' %}">Add Book</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

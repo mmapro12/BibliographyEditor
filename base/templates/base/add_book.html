@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Add Book{% endblock title %}
+
+
+{% block content %}
+    <h1>Add Book</h1>
+    <hr>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="nickname">Şöhet Adı</label>
+        <textarea name="nickname" id="nickname"></textarea>
+        <br>
+
+        <label for="name">Tam Adı</label>
+        <textarea name="name" id="name"></textarea>
+        <br>
+
+        <label for="book">Kitap Adı</label>
+        <textarea name="book" id="book"></textarea>
+        <br>
+
+        <label for="cilt">Cilt</label>
+        <textarea name="cilt" id="cilt"></textarea>
+        <br>
+
+        <label for="p_place">Basım yeri</label>
+        <textarea name="p_place" id="p_place"></textarea>
+        <br>
+
+        <label for="printer">Yayıncı</label>
+        <textarea name="printer" id="printer"></textarea>
+        <br>
+
+        <label for="date">Basım yılı</label>
+        <textarea name="date" id="date"></textarea>
+        <br>
+
+        <label for="press">Baskı</label>
+        <textarea name="press" id="press"></textarea>
+        <br>
+
+        <label for="thk">Tahkik</label>
+        <textarea name="thk" id="thk"></textarea>
+        <br>
+
+        <input type="submit" value="Ekle">
+    </form>
+    
+{% endblock content %}

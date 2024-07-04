@@ -1,0 +1,46 @@
+def editBook(request, book_id):
+    # Fetch the book object from the database
+    book = Book.objects.get(id=book_id)
+    
+    if request.method == 'POST':
+        # Process the form data here
+        author_nickname = request.POST.get('nickname') # Meşhur isim
+        author_full_name = request.POST.get('name') # Tam isim
+        book_name = request.POST.get('book')# Kitap Adı
+        skin = request.POST.get('cilt') # Cilt
+        print_place = request.POST.get('p_place') # Basım yeri
+        printer = request.POST.get('printer') # Yayıncı
+        print_year = request.POST.get('date') # yıl
+        press = request.POST.get('press') # Baskı
+        thk = request.POST.get('thk') # Tahkik
+        
+        # Update the book object with the new data
+        book.author_nickname = author_nickname
+        book.author_full_name = author_full_name
+        book.book_name = book_name
+        book.skin = skin
+        book.print_place = print_place
+        book.printer = printer
+        book.print_year = print_year
+        book.press = press
+        book.thk = thk
+        
+        # Save the book to the database
+        book.save()
+        
+        # Redirect to the home page
+        return redirect('home')
+    
+    # Pass the book object to the template and render it
+    context = {'book': book}
+    return render(request, 'base/edit_book.html', context)
+
+def deleteBook(request, book_id):
+    # Fetch the book object from the database
+    book = Book.objects.get(id=book_id)
+    
+    # Delete the book object from the database
+    book.delete()
+    
+    # Redirect to the home page
+    return redirect('home')

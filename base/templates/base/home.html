@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock title %}
+
+
+{% block content %}
+    <h1>Home</h1>
+
+    <div style="border: 1px solid black;">
+        <h2>Sıralama Seçme</h2>
+        <p>1 - İlk Geçtiği Yerde</p>
+        <p>2 - Sonraki Geçtiği Yerde</p>
+        <p>3 - Kaynakçada</p>
+
+        <button type="button"><a href="{% url 'ranking' '1'%}">İlk Geçtiği Yerde</a></button>
+        <button type="button"><a href="{% url 'ranking' '2'%}">Sonraki Geçtiği Yerde</a></button>
+        <button type="button"><a href="{% url 'ranking' '3'%}">Kaynakçada</a></button>
+    </div>
+
+    <div class="books">
+        {% for book in books %}
+            <div class="book">
+                <h2>
+                    {{book.author_nickname}} ...
+                </h2>
+            </div>
+        {% endfor %}
+    </div>
+    
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Ranking{% endblock title %}
+
+
+{% block content %}
+
+{% for book in books %}
+
+{% if ranking == '1' %}
+<p>{{book.author_full_name}}, {{book.book_name}} &#40;{{book.print_place}}: {{book.printer}}, {{book.print_year}}&#41;, SAYFA_NO</p>
+{% elif ranking == '2' %}
+<p>{{book.author_full_name}}, {{book.book_name}}, SAYFA_NO</p>
+{% elif ranking == '3' %}
+<p>{{book.author_nickname}}, {{book.author_full_name}}.  {{book.book_name}}. {{book.skin}} Cilt. {% if thk %}{{book.thk}}. {% endif %}{{book.print_place}}: {{book.printer}}, {{book.press}}.Basım, {{book.print_year}}.</p>
+{% endif %}
+
+{% endfor %}
+
+{% endblock content %}

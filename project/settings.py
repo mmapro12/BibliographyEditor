@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-mhhw=^6lf*)0a%lf3^*0tt2j2bag4orf&ge3jy3c!qdb$j!#^3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://bibliographyeditor-production.up.railway.app/']
 
 
 # Application definition
@@ -123,7 +123,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static'
 
 STATICFILES_DIRS = [
-    
+
 ]
 
 # Default primary key field type

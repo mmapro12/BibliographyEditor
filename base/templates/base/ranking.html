@@ -7,11 +7,14 @@
 {% for book in books %}
 
 {% if ranking == '1' %}
-<p>{{book.author_full_name}}, {{book.book_name}} &#40;{{book.print_place}}: {{book.printer}}, {{book.print_year}}&#41;, SAYFA_NO</p>
+<p>{{book.author_full_name}}, {{book.book_name}} &#40;{% if book.print_place == 'YOK' %}b.y.y.{% else %}{{book.print_place}}{% endif %}: {% if book.printer == 'YOK' %}y.y.{% else %}{{book.printer}}{% endif %}, {% if book.print_year != 'YOK' %}{{book.print_year}} {% else %} ts.{% endif %}&#41;, SAYFA_NO</p>
+<br>
 {% elif ranking == '2' %}
 <p>{{book.author_full_name}}, {{book.book_name}}, SAYFA_NO</p>
+<br>
 {% elif ranking == '3' %}
-<p>{{book.author_nickname}}, {{book.author_full_name}}.  {{book.book_name}}. {{book.skin}} Cilt. {% if thk %}{{book.thk}}. {% endif %}{{book.print_place}}: {{book.printer}}, {{book.press}}.Basım, {{book.print_year}}.</p>
+<p>{{book.author_nickname}}, {{book.author_full_name}}.  {{book.book_name}}. {% if book.skin != '1'%} {{book.skin}} C. {% endif %} {% if thk %}{{book.thk}}. {% endif %}{% if book.print_place == 'YOK' %}b.y.y.{% else %}{{book.print_place}}{% endif %}: {% if book.printer == 'YOK' %}y.y.{% else %}{{book.printer}}{% endif %}, {{book.press}}.Basım {% if book.print_year != 'YOK' %}, {{book.print_year}} {% else %}, ts.{% endif %} .</p>
+<br>
 {% endif %}
 
 {% endfor %}
